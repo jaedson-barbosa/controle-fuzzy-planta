@@ -1,0 +1,67 @@
+Aberto:
+         RiseTime: 0.7087
+         TransientTime: 1.9933
+          SettlingTime: 1.9933
+           SettlingMin: 0.9000
+           SettlingMax: 1.0460
+             Overshoot: 4.6008
+            Undershoot: 0
+                  Peak: 1.0460
+              PeakTime: 1.4660
+
+Aberto_1:
+RiseTime: 0.4022
+TransientTime: 3.2555
+ SettlingTime: 3.2555
+  SettlingMin: 0.9084
+  SettlingMax: 1.1549
+    Overshoot: 14.5286
+   Undershoot: 0
+         Peak: 1.1549
+     PeakTime: 0.8610
+
+Fuzzy:
+RiseTime: 0.1907
+TransientTime: 0.3556
+ SettlingTime: 0.3556
+  SettlingMin: 0.8929
+  SettlingMax: 0.9960
+    Overshoot: 0.4130
+   Undershoot: 0
+         Peak: 0.9960
+     PeakTime: 0.4960
+
+Fuzzy_1:
+RiseTime: 0.1253
+TransientTime: 0.2019
+ SettlingTime: 0.2019
+  SettlingMin: 0.8954
+  SettlingMax: 0.9960
+    Overshoot: 0.3142
+   Undershoot: 0
+         Peak: 0.9960
+     PeakTime: 0.3060
+
+PID:
+
+RiseTime: 0.1714
+TransientTime: 2.1815
+ SettlingTime: 2.1815
+  SettlingMin: 0.8984
+  SettlingMax: 1.1760
+    Overshoot: 17.8393
+   Undershoot: 0
+         Peak: 1.1760
+     PeakTime: 0.5110
+
+PID_1:
+
+RiseTime: 0.0995
+TransientTime: 3.4402
+ SettlingTime: 3.4402
+  SettlingMin: 0.8902
+  SettlingMax: 1.0609
+    Overshoot: 7.2746
+   Undershoot: 0
+         Peak: 1.0609
+     PeakTime: 0.3750

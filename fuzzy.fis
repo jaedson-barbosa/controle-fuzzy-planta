@@ -1,0 +1,50 @@
+[System]
+Name='fuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=10
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='erro'
+Range=[-1.1 1.1]
+NumMFs=5
+MF1='negativo':'trimf',[-0.8 -0.4 0.05]
+MF2='zero':'trimf',[-0.2 0 0.2]
+MF3='positivo':'trimf',[-0.05 0.4 0.8]
+MF4='positivao':'trimf',[0.5 1.1 1.1]
+MF5='negativao':'trimf',[-1.1 -1.1 -0.5]
+
+[Input2]
+Name='de'
+Range=[-5 5]
+NumMFs=3
+MF1='negativo':'trapmf',[-5 -5 -2 0]
+MF2='pequeno':'trimf',[-2.5 0 2.5]
+MF3='positivo':'trapmf',[0 2 5 5]
+
+[Output1]
+Name='controle'
+Range=[-10 10]
+NumMFs=3
+MF1='negativo':'trimf',[-10 -10 -2]
+MF2='zero':'trimf',[-2 0 2]
+MF3='positivo':'trimf',[2 10 10]
+
+[Rules]
+3 2, 3 (1) : 1
+3 -2, 2 (1) : 1
+4 -3, 3 (1) : 1
+4 3, 2 (1) : 1
+1 2, 1 (1) : 1
+1 -2, 2 (1) : 1
+5 -1, 1 (1) : 1
+5 1, 2 (1) : 1
+2 3, 3 (1) : 1
+2 1, 1 (1) : 1
