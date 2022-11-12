@@ -5,13 +5,12 @@
 \usepackage{indentfirst}
 \usepackage{hyperref}
 \usepackage{listings}
-\usepackage[acronym, toc]{glossaries}
 \usepackage{graphicx}
 \usepackage{tabularray}
 \usepackage{float}
 
 %\AddToHook{cmd/section/before}{\clearpage}
-\setkeys{Gin}{width=0.8\linewidth}
+\setkeys{Gin}{width=0.75\linewidth}
 
 \linespread{1.25}
 \parindent=1.25cm
@@ -39,11 +38,6 @@
 \renewcommand*{\fps@figure}{H}
 \renewcommand*{\fps@table}{H}
 \makeatother
-
-\makeglossaries
-\newacronym{rna}{RNA}{Rede Neural Artificial}
-\newacronym{mse}{MSE}{Mean Squared Error, ou Erro Quadrático Médio}
-\newacronym{mape}{MAPE}{Mean Absolute Percentage Error, ou Erro Percentual Absoluto Médio}
 
 \begin{document}
 
@@ -116,17 +110,62 @@ Foram testadas inúmeras combinações de intervalos e quantidades até que foss
 
 \section{Simulação com MATLAB}
 
-Muitos testes foram feitos e muitas imagens foram geradas, por isso todo o processo de simulação e geração de figuras foi automatizado usando o código MATLAB.
+Muitos testes foram feitos e muitas imagens foram geradas, por isso todo o processo de simulação e geração de figuras foi automatizado usando o código \ref{code:principal} e as funções auxiliares mostradas em \ref{code:simular} e \ref{code:plotsim}.
 
 \lstinputlisting[label=code:principal, caption={Código principal da simulação.}]{principal.m}
 
+\lstinputlisting[label=code:simular, caption={Função padrão de simulação.}]{simular.m}
 
+\lstinputlisting[label=code:plotsim, caption={Função de plotagem de gráficos.}]{plot_sim.m}
 
 \section{Resultados}
 
-\input{tabela_otimista.tex}
+Uma forma simples de exibir resumidamente os resultados atingidos é por meio das tabelas \ref{tab:resultados_otimistas} e \ref{tab:resultados_pessimistas}, que mostram o desempenho atingido na situação planejada e numa cuja planta é diferente da planejada e cujo sinal de controle é adicionado a um ruído com desvio padrão igual a 0,5.
 
-\printglossary[type=\acronymtype]
-\printglossary
+\input{tabela_otimista}
+
+\input{tabela_pessimista}
+
+\begin{figure}
+    \centering
+    \includegraphics{fig/step_puro.png}
+    \caption{Resposta geral ao degrau na planta padrão e sem ruído}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{fig/step_puro_fuzzy.png}
+    \caption{Resposta do controlador Fuzzy ao degrau na planta padrão e sem ruído}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{fig/custom_ruido.png}
+    \caption{Resposta geral a uma função customizada na planta padrão e com ruído}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{fig/custom_ruido_fuzzy.png}
+    \caption{Resposta do controlador Fuzzy a uma função customizada na planta padrão e com ruído}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{fig/custom_ruido_1.png}
+    \caption{Resposta geral a uma função customizada numa planta diferente e com ruído}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{fig/custom_ruido_1_fuzzy.png}
+    \caption{Resposta do controlador Fuzzy a uma função customizada numa planta diferente e com ruído}
+\end{figure}
+
+Existem muitas outras imagens geradas, porém elas não foram inseridas aqui a fim de evitar que o relatório se tornasse muito extenso.
+
+\section{Considerações finais}
+
+Este foi um trabalho interessante e com ele foi possível entender melhor como realmente funciona o projeto de um controlador Fuzzy, além de também servir para aprender a usar mais algumas ferramentas do MATLAB e do Simulink. Sem dúvidas é possível obter resultados melhores dedicando mais tempo no refinamento dos parâmetros, mas o que foi obtido já excede, e muito, os requisitos exigidos.
 
 \end{document}
